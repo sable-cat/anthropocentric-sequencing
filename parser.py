@@ -1,6 +1,9 @@
 # This file contains code for reformatting the Virus-Host DB's data into a more workable format. It's quite long, so
 # I thought it best to separate it from the rest of the code.
 
+import csv
+import numpy as np
+from utils import *
 
 class VHDBEntry:
     def __init__(self, field_list):
