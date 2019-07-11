@@ -2,8 +2,10 @@
 # I thought it best to separate it from the rest of the code.
 
 import csv
-import numpy as np
-from utils import *
+#from utils import *
+
+
+__all__ = ['VHDBEntry', 'getListOfEntries', 'Virus', 'Host', 'Sourcing', 'HostSource', 'MyVHDB', 'MyVHDBEntry']
 
 class VHDBEntry:
     def __init__(self, field_list):
@@ -168,3 +170,25 @@ class MyVHDBEntry:
 
     def __repr__(self):
         return self.__str__()
+    
+# Name records sometimes abbreviate the genus name (e.g. "A. mellifera") and sometimes contain multiple species in the format "speciesA x speciesB x ...".
+# This method extracts all names and possible abbreviations for them.
+def getSpeciesNamesFromNameRecord(name):
+    species_names = name.split(" x ")
+    orig_length = len(species_names)
+    for species_name in species_names[:orig_length]:
+        split_name = species_name.split(' ')
+        abbrev_genus = "{}.".format(split_name[0][0])
+        for n in split_name[1:]:
+            abbrev_genus = "{} {}".format(abbrev_genus, n)
+            
+        species_names.append(abbrev_genus)
+    
+    return species_names
+        
+        
+        
+    
+if __name__ == '__main__':
+    print("Hi!")
+    print(getSpeciesNamesFromNameRecord("GenusA speciesA x GenusB speciesB"))
