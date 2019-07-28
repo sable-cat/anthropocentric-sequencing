@@ -28,3 +28,10 @@ class Counter:
 
     def keys(self):
         return self.dict.keys()
+    
+    def clone():
+        new_counter = Counter()
+        for key, count in self.dict.items():
+            new_counter.add(key, count)
+            
+        return new_counter
