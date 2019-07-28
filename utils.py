@@ -29,9 +29,15 @@ class Counter:
     def keys(self):
         return self.dict.keys()
     
-    def clone():
+    def clone(self):
         new_counter = Counter()
         for key, count in self.dict.items():
             new_counter.add(key, count)
             
         return new_counter
+    
+    def extend(self, other_counter):
+        for key, count in other_counter.items():
+            self.add(key, count)
+            
+        return None
