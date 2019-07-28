@@ -41,3 +41,10 @@ class Counter:
             self.add(key, count)
             
         return None
+    
+    def sum(self):
+        sum = 0
+        for key, count in self.dict.items():
+            sum = sum + count
+            
+        return sum
