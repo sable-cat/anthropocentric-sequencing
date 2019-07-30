@@ -1,5 +1,10 @@
 \documentclass[12pt]{article}
 \usepackage{times}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{float}
+
 \linespread{1}
 \title{Anthropocentric Bias in Viral Genome Sequencing: Which Viruses Get Sequenced?}
 \date{\today}
@@ -62,12 +67,45 @@
     the format of the data contained within into a one-to-many relationship
     of viruses to their hosts.
 
-    \section{Methodology}
+    %\section{Methodology}
     
-    Data obtained from the Virus-Host Database was reformatted into a "one Virus
-    to many Hosts" format using a python script, the code for which is presented
-    in the Appendix. \\
-    From this data, a breakdown of the clades to which host species present in the
-    database belonged. As detailed in the Results section, the vast majority of
-    host species belonged to either Metazoa or Viridiplantae.
+    %Data obtained from the Virus-Host Database was reformatted into a "one Virus
+    %to many Hosts" format using a python script, the code for which is presented
+    %in the Appendix. \\
+    %From this data, a breakdown of the clades to which host species present in the
+    %database belonged. Further, a breakdown of the number of viruses which infect
+    %species of each clade was also obtained.
+
+    \section{Preliminary Analysis}
+
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=100mm]{unique_species_figure.png}
+            \caption{A comparison of the number of unique species of virus and of
+            host present in the database.}
+            \label{unique_species_figure}
+        \end{center}
+    \end{figure}
+
+    As shown in Figure \ref{unique_species_figure}, there are just under 3
+    times as many unique species of virus as of host. This means we can expect,
+    for each host species in the database, multiple species of virus that infect
+    it.
+    
+
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=120mm]{host_clades_figure.png}
+            \caption{A breakdown of the kingdoms to which host species present in
+            the database belong.}
+            \label{host_clades_figure}
+        \end{center}
+    \end{figure}
+
+    Figure \ref{host_clades_figure} shows the vast majority of host species in
+    the database are either animals (Metazoa) or plants (Viridiplantae). Fungal
+    host species are relatively uncommon in the data. We see a similar pattern
+    in the clades viruses can infect:
+    
+
 \end{document}
