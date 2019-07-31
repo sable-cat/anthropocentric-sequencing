@@ -141,22 +141,47 @@
 
     This is not entirely the case, however. An examination of the distribution of
     the data, shown in Figure \ref{viruses_per_host_figure}, shows an enormous skew
-    towards the lower end in the number of viruses per host species. Particularly,
-    over half of the host species in the database - 1,797 species, to be exact -
+    towards the lower end in the number of viruses per host species. In particular,
+    well over half of the host species in the database - 1,797 species, to be exact -
     have only a single documented virus in the database.
-    
     
     \begin{figure}[H]
         \begin{center}
             \includegraphics[width=100mm]{viruses_per_host_figure.png}
             \caption{The distribution of the number of unique species of virus
-            capable of infecting each host species included in the database.
-            The distribution is enormously right skewed.}
+            capable of infecting each host species included in the database.}
             \label {viruses_per_host_figure}
         \end{center}
     \end{figure}
 
-    
+    It is almost certainly not the case that these species play host to only a
+    single species of virus. This indicates certain species are far, far more likely
+    to have their viruses examined and sequenced.
+
+    Unsurprisingly, the host species with by far the largest number of
+    sequenced viruses - 1,309 distinct species - is \emph{Homo sapiens}. However,
+    the next most common host are rather surprising: two strains of 
+    \emph{Mycolicibacterium smegmatis} - MC2 115 and one left unlabeled - with a
+    combined 680 unique species of virus preying on them.
+
+    \begin{table}[]
+        \begin{tabular}{|l||c|}
+        \hline
+        Host species                                 & \# of Viruses \\ \hline\hline
+        \textit{Homo sapiens}                        & 1,309         \\ \hline
+        \textit{Mycolicibacterium smegmatis MC2 155} & 446           \\ \hline
+        \textit{Solanum Lycopersicum} (Tomato)       & 261           \\ \hline
+        \textit{Mycolicibacterium smegmatis}         & 234           \\ \hline
+        \textit{Escheria coli}                       & 185           \\ \hline
+        \textit{Bos taurus} (Cattle)                 & 182           \\ \hline
+        \textit{Sus scrofa} (Pig)                    & 178           \\ \hline
+        \textit{Mus musculus} (House mouse)          & 138           \\ \hline
+        \textit{Pseudomonas aeruginosa}              & 113           \\ \hline
+        \textit{Staphylococcus aureus}               & 101           \\ \hline    
+        \end{tabular}
+        \caption{The ten most common host species in the database.}
+        \label{most_common_hosts_table}
+    \end{table}
     
 
 \end{document}
