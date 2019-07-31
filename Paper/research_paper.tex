@@ -38,13 +38,15 @@
 
     The NCBI Viral Genomes database provides a large catalogue of viral genomes 
     sequenced by scientists around the world. It is the preeminent resource for
-    obtaining records of viral genomes for scientific analysis. \\
+    obtaining records of viral genomes for scientific analysis.
+
     Yet, there is some doubt as to the extent to which the genomes catalogued
     therein can be taken as representative of viral genomes present in the
     natural world as a whole. We suspect the genomes of viruses that infect
     humans, domestic animals, and domestic plants - living things that are
     directly relevant to human life - are far more likely to be sequenced than
-    the genomes of those which do not. \\
+    the genomes of those which do not.
+
     The aim of this project, therefore, is to ascertain the extent of this
     anthropocentric bias in the NCBI database.
 
@@ -55,16 +57,19 @@
     linkages between the various NCBI databases' (including the Viral Genomes
     database) records for viruses and the records for their hosts. Therefore,
     this project uses data from the Viral-Host Database instead of the NCBI viral
-    genomes database directly. \\
+    genomes database directly.
+
     The Virus-Host Database in its entirety - 14,042 unique records - is utilized in
-    this project. \\
+    this project.
+
     This presents a difficulty, however - the Virus-Host Database's records are
     formatted as a relationship between a single virus and a single piece of
     literature that shows at least one host for that virus, with the hosts shown
     in that literature linked by the record, rather than as a relationship between a
-    virus and its hosts. \\
+    virus and its hosts.
+
     As such, the database was reformatted to a custom format, each entry providing
-    a one-to-many relationship between a virus and its hosts. \\
+    a one-to-many relationship between a virus and its hosts.
 
 
     %\section{Methodology}
@@ -77,6 +82,48 @@
     %species of each clade was also obtained.
 
     \section{Preliminary Analysis}
+
+   
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=100mm]{host_clades_figure.png}
+            \caption{A breakdown of the kingdoms to which host species present in
+            the database belong.}
+            \label{host_clades_figure}
+        \end{center}
+    \end{figure}
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=100mm]{infects_clades_figure.png}
+            \caption{A breakdown of viruses capable of infecting species of
+            the given kingdom. The orange part represents viruses which can
+            infect species of multiple kingdoms.}
+            \label{infects_clades_figure}
+        \end{center}
+    \end{figure}
+
+    Figure \ref{host_clades_figure} shows the vast majority of host species in
+    the database are either animals (Metazoa) or plants (Viridiplantae). Fungal
+    host species are relatively uncommon in the data.
+
+    We see a similar pattern in the number of virus species that find their
+    hosts in a given clade, as shown in Figure \ref{infects_clades_figure}.
+    The numbers there are roughly proportional to those in Figure
+    \ref{host_clades_figure}, save that plants seem to make up a somewhat
+    proportionately smaller portion of the data. It also shows that viruses
+    which are capable of infecting species belonging to more than one distinct
+    kingdom are extremely rare in the data set; thus, we can effectively ignore
+    this overlap.
+
+    These figures show a very small number of fungal species and fungal viruses
+    present in the database. While there are a number of domesticated species of
+    fungus, and a comparison involving these and their wild counterparts may
+    prove useful to this investigation, this relatively small degree of data
+    on the subject resulted in our decision to exclude fungal species and their
+    viruses from the rest of the investigation, and focus solely on plants and
+    animals.
+
+    \section{Results}
 
     \begin{figure}[H]
         \begin{center}
@@ -92,47 +139,24 @@
     for each host species in the database, multiple species of virus that infect
     it.
 
+    This is not entirely the case, however. An examination of the distribution of
+    the data, shown in Figure \ref{viruses_per_host_figure}, shows an enormous skew
+    towards the lower end in the number of viruses per host species. Particularly,
+    over half of the host species in the database - 1,797 species, to be exact -
+    have only a single documented virus in the database.
+    
+    
     \begin{figure}[H]
         \begin{center}
-            \includegraphics[width=100mm]{host_clades_figure.png}
-            \caption{A breakdown of the kingdoms to which host species present in
-            the database belong.}
-            \label{host_clades_figure}
+            \includegraphics[width=100mm]{viruses_per_host_figure.png}
+            \caption{The distribution of the number of unique species of virus
+            capable of infecting each host species included in the database.
+            The distribution is enormously right skewed.}
+            \label {viruses_per_host_figure}
         \end{center}
     \end{figure}
 
-    \begin{figure}[H]
-        \begin{center}
-            \includegraphics[width=100mm]{infects_clades_figure.png}
-            \caption{A breakdown of viruses capable of infecting species of
-            the given kingdom. The orange part represents viruses which can
-            infect species of multiple kingdoms.}
-            \label{infects_clades_figure}
-        \end{center}
-    \end{figure}
-
-    Figure \ref{host_clades_figure} shows the vast majority of host species in
-    the database are either animals (Metazoa) or plants (Viridiplantae). Fungal
-    host species are relatively uncommon in the data. \\
-    We see a similar pattern in the number of virus species that find their
-    hosts in a given clade, as shown in Figure \ref{infects_clades_figure}.
-    The numbers there are roughly proportional to those in Figure
-    \ref{host_clades_figure}, save that plants seem to make up a somewhat
-    proportionately smaller portion of the data. It also shows that viruses
-    which are capable of infecting species belonging to more than one distinct
-    kingdom are extremely rare in the data set; thus, we can effectively ignore
-    this overlap. \\
-    These figures show a very small number of fungal species and fungal viruses
-    present in the database. While there are a number of domesticated species of
-    fungus, and a comparison involving these and their wild counterparts may
-    prove useful to this investigation, this relatively small degree of data
-    on the subject resulted in our decision to exclude fungal species and their
-    viruses from the rest of the investigation, and focus solely on plants and
-    animals.
-
-    \section{Results}
-
-
+    
     
 
 \end{document}
