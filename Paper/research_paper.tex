@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{float}
+\usepackage[table,xcdraw]{xcolor}
 
 \linespread{1}
 \title{Anthropocentric Bias in Viral Genome Sequencing: Which Viruses Get Sequenced?}
@@ -119,11 +120,13 @@
     present in the database. While there are a number of domesticated species of
     fungus, and a comparison involving these and their wild counterparts may
     prove useful to this investigation, this relatively small degree of data
-    on the subject resulted in our decision to exclude fungal species and their
+    on the subject resulted in the decision to exclude fungal species and their
     viruses from the rest of the investigation, and focus solely on plants and
     animals.
 
     \section{Results}
+
+    \subsection{Distributions of Host and Virus Species}
 
     \begin{figure}[H]
         \begin{center}
@@ -186,7 +189,7 @@
     \end{table}
 
     As shown in Table \ref{most_common_hosts_table}, species with the largest
-    numbers of viruses seemed to be a mix of domesticated species (both plants
+    numbers of viruses seem to be a mix of domesticated species (both plants
     and animals) and an assortment of bacteria. The reason for the predominance of
     \emph{Escheria coli}, \emph{Pseudomonas aeruginosa}, and \emph{Staphylococcus
     aureus} seems obvious: all three are relatively common, potentially pathogenic
@@ -211,5 +214,109 @@
     so that research would also find itself biased towards them is in line with
     the contention that research into viral genomics is biased in an
     anthropocentric direction.
+
+    The predominance of the use of such model organisms in phage research,
+    however, presents a complication - it would require extensive manual curation
+    to determine exactly which non-pathogenic bacteria in the database are serving
+    as models for pathogenic species, versus which are being researched on their
+    own merits. Such a determination would need to be made to perform any sort of
+    detailed statistical analysis on this phenomenon.
+
+    This places a deeper analysis of such outside the scope of this
+    investigation, and so beyond the reflection on the subject above, the remainder
+    of this study will exclude bacteriophages from the data.
+
+    \subsection{Wild and Domestic Host Species}
+
+    As shown in Figure \ref{host_species_domestic_wild_figure}, a quite small
+    number of the plant and animal species appearing in the database are
+    domesticated, vs. those that are wild. This is to be expected, as,
+    ultimately, domesticated species make up a tiny portion of the species
+    on Earth. These numbers, however, actually represent a much larger
+    proprotion of the database than we would see if every animal on Earth
+    were included in it.
+
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=100mm]{host_species_domestic_wild_figure.png}
+            \caption{A comparison of the number of host species in the database
+            that are domestic vs. those that are wild.}
+            \label{host_species_domestic_wild_figure}
+        \end{center}
+    \end{figure}
+    
+    This already shows a marked tendency for domesticated species to be included
+    over wild species. The inclusion or exclusion of individual host species is
+    not, however, the focus of this investigation; the inclusion of their viruses
+    is. The above serves as little more than a reference point.
+    
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=100mm]{viruses_human_relevance.png}
+            \caption{A comparison of which hosts viruses in the database
+            infect, and whether their hosts are human-relevant (i.e. infect
+            humans or a domesticated species)}
+            \label{viruses_human_relevance_figure}
+        \end{center}
+    \end{figure}
+
+    Figure \ref{viruses_human_relevance_figure} clearly shows the number of
+    sequenced viruses in the database which are human-relevant is grossly out
+    of proportion to the number of host species in the database which are.
+
+    We can confirm this via a chi-squared test with the categories Human-relevant
+    (i.e. humans and domesticated species) and Wild, and the null hypothesis
+    "Whether or not a species is domesticated is independent of how many viruses
+    that infect it get sequenced," as below.
+
+    \begin{table}[H]
+        \begin{tabular}{|c|c|c|c|}
+        \hline
+                         & \textbf{Human-Relevant} & \textbf{Wild} & \textbf{Total} \\ \hline
+        \textbf{Viruses} & 2,906                   & 3,470         & 6,376          \\ \hline
+        \textbf{Hosts}   & 114                     & 2,124         & 2,238          \\ \hline
+        \textbf{Total}   & 3020                    & 5594          & 8614           \\ \hline
+        \end{tabular}
+    \end{table}
+
+    The test on this data gives us $\chi^2 = 1192.4394$, and therefore $p < 0.01$,
+    rejecting the null hypothesis and showing our determination that these proportions
+    clearly don't match up is correct.
+
+    However, that is not the only observation that can be drawn from the data in
+    Figure \ref{viruses_human_relevance_figure}: it is also apparent that the number
+    of viruses in each category is differently proportioned between plants and
+    animals, with animals a proportionately larger number of animals being wild
+    as compared to those that are human-relevant.
+
+    This is not solely attributable to the proportionately larger number of
+    plant species in the database that are domesticated, compared to animals;
+    the discrepancy in the number of viruses for each is larger than can be
+    accounted for by that alone.
+
+    %\begin{table}[H]
+    %    \begin{tabular}{|c||c|c|c||c||c|}
+    %    \hline
+    %                     & \textbf{Human}           & \textbf{Domesticated} & \textbf{Total Human-Relevant} & \textbf{Wild} & \textbf{Total} \\ \hline
+    %    \textbf{Animals} & 1,310                    & 365                   & 1,656                         & 2,579         & 4,235          \\ \hline
+    %    \textbf{Plants}  & \cellcolor[HTML]{9B9B9B} & 1,250                 & 1,250                         & 891           & 2,141          \\ \hline
+    %    \textbf{Total}   & 1,310                    & 1,615                 & 2,906                         & 3,470         & 6,376          \\ \hline
+    %    \end{tabular}
+    %\end{table}
+
+    A similar chi-squared test below tests this discrepancy.
+
+    \begin{table}[H]
+        \begin{tabular}{|c|c|c|c|}
+        \hline
+                                & \textbf{Human-Relevant} & \textbf{Wild} & \textbf{Total} \\ \hline
+        \textbf{Animal Viruses} & 1,656                   & 2,579         & 4,235          \\ \hline
+        \textbf{Plant Viruses}  & 1,250                   & 891           & 2,141          \\ \hline
+        \textbf{Total}          & 2,906                   & 3,470         & 6,376          \\ \hline
+        \end{tabular}
+        \end{table}
+
+    The test on this data gives us $\chi^2 = 213.1386$, and thus $p < 0.01$,
+    confirming that the two are not independent. 
 
 \end{document}
