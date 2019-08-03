@@ -59,6 +59,28 @@
     The aim of this project, therefore, is to ascertain the extent of this
     anthropocentric bias in the NCBI database.
 
+    \section{Data \& Methodology}
+
+    The NCBI viral genomes database does not provide information on the hosts
+    of the viruses it contains records on. Thankfully, the Virus-Host Database provides
+    linkages between the various NCBI databases' (including the Viral Genomes
+    database) records for viruses and the records for their hosts. Therefore,
+    this project uses data from the Viral-Host Database instead of the NCBI viral
+    genomes database directly.
+
+    The Virus-Host Database in its entirety - 14,042 unique records - is utilized in
+    this project.
+
+    This presents a difficulty, however - the Virus-Host Database's records are
+    formatted as a relationship between a single virus and a single piece of
+    literature that shows at least one host for that virus, with the hosts shown
+    in that literature linked by the record, rather than as a relationship between a
+    virus and its hosts.
+
+    As such, the database was reformatted to a custom format, each entry providing
+    a one-to-many relationship between a virus and its hosts.
+
+
     
 
 
