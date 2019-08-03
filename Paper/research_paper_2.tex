@@ -60,6 +60,8 @@
     anthropocentric bias in the NCBI database.
 
     \section{Data \& Methodology}
+    
+    \subsection{Overview}
 
     The NCBI viral genomes database does not provide information on the hosts
     of the viruses it contains records on. Thankfully, the Virus-Host Database provides
@@ -80,7 +82,25 @@
     As such, the database was reformatted to a custom format, each entry providing
     a one-to-many relationship between a virus and its hosts.
 
+    \subsection{Preliminary Analysis}
 
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=100mm]{host_clades_figure.png}
+            \caption{A breakdown of the kingdoms to which host species present in
+            the database belong.}
+            \label{host_clades_figure}
+        \end{center}
+    \end{figure}
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=100mm]{infects_clades_figure.png}
+            \caption{A breakdown of viruses capable of infecting species of
+            the given kingdom. The orange part represents viruses which can
+            infect species of multiple kingdoms.}
+            \label{infects_clades_figure}
+        \end{center}
+    \end{figure}
     
 
 
