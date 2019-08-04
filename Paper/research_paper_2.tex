@@ -273,6 +273,58 @@
     than half of the plant viruses in the database, and nearly half of the animal
     viruses.
     
+    This appears grossly out of proportion to the relative numbers of domesticated
+    and wild host species in the database. We can confirm this with a chi-squared
+    test, setting up our categories as in Table \ref{domestic_wild_chi_test}, and
+    with the null hypothesis "Whether or not a species is domesticated is independent
+    of how many viruses that infect are sequenced."
+
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                                 & \textbf{Human-Relevant} & \textbf{Wild} & \textbf{Total} \\ \hline
+                \textbf{Viruses} & 2,906                   & 3,470         & 6,376          \\ \hline
+                \textbf{Hosts}   & 114                     & 2,124         & 2,238          \\ \hline
+                \textbf{Total}   & 3020                    & 5594          & 8614           \\ \hline
+            \end{tabular}
+        \end{center}
+        \caption{Categories for our chi test.}
+        \label{domestic_wild_chi_test}
+    \end{table}
+
+    The test on this data gives us $\chi^2 = 1192.4394$, and therefore $p < 0.01$,
+    rejecting the null hypothesis and showing our determination that these proportions
+    don't match up is correct.
+
+    It is also apparent that the number of viruses in each category is differently
+    proportioned between plants and animals - with animals a proportionately
+    larger number of animals are wild, versus those that are human-relevant.
+
+    We can test this observation with another chi-squared test, this time using
+    categories as in Table \ref{plants_animals_chi_test}, and with the null
+    hypothesis "The number of human-relevant vs. wild viruses is independent of
+    the number of plant vs. animal viruses."
+
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                                        & \textbf{Human-Relevant} & \textbf{Wild} & \textbf{Total} \\ \hline
+                \textbf{Animal Viruses} & 1,656                   & 2,579         & 4,235          \\ \hline
+                \textbf{Plant Viruses}  & 1,250                   & 891           & 2,141          \\ \hline
+                \textbf{Total}          & 2,906                   & 3,470         & 6,376          \\ \hline
+            \end{tabular}
+        \end{center}
+        \caption{Categories for the second chi test.}
+        \label{plants_animals_chi_test}
+    \end{table}
+
+    The test on this data gives us $\chi^2 = 213.1386$, and thus $p < 0.01$,
+    confirming that the two are not independent, and that plant viruses in the
+    database are more likely to be "human-relevant" than animal viruses.
+        
+    \section{Discussion}
 
 
 \end{document}
