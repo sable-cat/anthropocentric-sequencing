@@ -92,6 +92,11 @@
             \label{host_clades_figure}
         \end{center}
     \end{figure}
+
+    Figure \ref{host_clades_figure} shows the vast majority of host species in
+    the database are either animals (Metazoa) or plants (Viridiplantae). Fungal
+    host species are relatively uncommon in the data.
+
     \begin{figure}[H]
         \begin{center}
             \includegraphics[width=100mm]{infects_clades_figure.png}
@@ -102,9 +107,7 @@
         \end{center}
     \end{figure}
 
-    Figure \ref{host_clades_figure} shows the vast majority of host species in
-    the database are either animals (Metazoa) or plants (Viridiplantae). Fungal
-    host species are relatively uncommon in the data.
+    
 
     We see a similar pattern in the number of virus species that find their
     hosts in a given clade, as shown in Figure \ref{infects_clades_figure}.
@@ -122,8 +125,124 @@
     on the subject resulted in the decision to exclude fungal species and their
     viruses from the rest of the investigation, and focus solely on plants and
     animals.
-    
 
+    %\pagebreak
+
+    \section{Results}
+    
+    \subsection{Distributions of Host and Virus Species}
+
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=100mm]{unique_species_figure.png}
+            \caption{A comparison of the number of unique species of virus and of
+            host present in the database.}
+            \label{unique_species_figure}
+        \end{center}
+    \end{figure}
+
+    As shown in Figure \ref{unique_species_figure}, there are just under 3
+    times as many unique species of virus as of host. This means we can expect,
+    for each host species in the database, multiple species of virus that infect
+    it.
+
+    This is not entirely the case, however. An examination of the distribution of
+    the data, shown in Figure \ref{viruses_per_host_figure}, shows an enormous skew
+    towards the lower end in the number of viruses per host species. In particular,
+    well over half of the host species in the database - 1,797 species, to be exact -
+    have only a single documented virus in the database.
+    
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=90mm]{viruses_per_host_figure.png}
+            \caption{The distribution of the number of unique species of virus
+            capable of infecting each host species included in the database.}
+            \label {viruses_per_host_figure}
+        \end{center}
+    \end{figure}
+
+    Notably, a version of this graph using log scales for both axes - as shown in
+    Figure \ref{log_viruses_per_host_figure} - shows a nearly straight line,
+    indicating a simple exponential distribution is at play here.
+
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=90mm]{log_viruses_per_host_figure.png}
+            \caption{Figure \ref{viruses_per_host_figure} with both axes on a
+            logarithmic scale}
+            \label{log_viruses_per_host_figure}
+        \end{center}
+    \end{figure}
+
+    \begin{table}[H]
+        \begin{center}
+            \begin{tabular}{|l||c|}
+                \hline
+                Host species                                 & \# of Viruses \\ \hline\hline
+                \textit{Homo sapiens}                        & 1,309         \\ \hline
+                \textit{Mycolicibacterium smegmatis MC2 155} & 446           \\ \hline
+                \textit{Solanum Lycopersicum} (Tomato)       & 261           \\ \hline
+                \textit{Mycolicibacterium smegmatis}         & 234           \\ \hline
+                \textit{Escheria coli}                       & 185           \\ \hline
+                \textit{Bos taurus} (Cattle)                 & 182           \\ \hline
+                \textit{Sus scrofa} (Pig)                    & 178           \\ \hline
+                \textit{Mus musculus} (House mouse)          & 138           \\ \hline
+                \textit{Pseudomonas aeruginosa}              & 113           \\ \hline
+                \textit{Staphylococcus aureus}               & 101           \\ \hline    
+            \end{tabular}
+            \caption{The ten most common host species in the database.}
+            \label{most_common_hosts_table}
+        \end{center}
+    \end{table}
+
+    Species with the largest numbers of viruses seem to be a mix of domesticated
+    species (both plants and animals) and an assortment of common bacteria.
+
+    Unsurprisingly, the host species with by far the largest number of
+    sequenced viruses - 1,309 distinct species - is \emph{Homo sapiens}, As
+    shown by Table \ref{most_common_hosts_table}. However, the next most
+    common hosts are rather surprising: two strains of 
+    \emph{Mycolicibacterium smegmatis} - MC2 115 and one left unlabeled - with a
+    combined 680 unique species of virus preying on them.
+
+    \subsection{Wild and Domestic Host Species}
+
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=100mm]{host_species_domestic_wild_figure.png}
+            \caption{A comparison of the number of host species in the database
+            that are domestic vs. those that are wild.}
+            \label{host_species_domestic_wild_figure}
+        \end{center}
+    \end{figure}
+
+    As shown in Figure \ref{host_species_domestic_wild_figure}, a quite small
+    number of the plant and animal species appearing in the database are
+    domesticated, vs. those that are wild. This is to be expected, as,
+    ultimately, domesticated species make up a tiny portion of the species
+    on Earth. These numbers, however, actually represent a much larger
+    proprotion of the database than we would see if every animal on Earth
+    were included in it.
+
+    Notably, the proportion of plant species in the database which are
+    domesticated is much larger than the proportion of animal species which
+    are.
+
+    \begin{figure}[H]
+        \begin{center}
+            \includegraphics[width=100mm]{viruses_human_relevance.png}
+            \caption{A comparison of which hosts viruses in the database
+            infect, and whether their hosts are human-relevant (i.e. infect
+            humans or a domesticated species)}
+            \label{viruses_human_relevance_figure}
+        \end{center}
+    \end{figure}
+
+    Figure \ref{viruses_human_relevance_figure} shows "Human-relevant" viruses
+    - those that infect humans or species we have domesticated - make up more
+    than half of the plant viruses in the database, and nearly half of the animal
+    viruses.
+    
 
 
 \end{document}
