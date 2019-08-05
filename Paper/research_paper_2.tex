@@ -112,6 +112,10 @@
     As such, the database was reformatted to a custom format, each entry providing
     a one-to-many relationship between a virus and its hosts.
 
+    All data processing was performed via python script. Figures presented in the
+    paper were generated using Matplotlib. A link to the github repository for this
+    project is included in the appendix of this paper.
+
     \subsection{Preliminary Analysis}
 
     \begin{figure}[H]
@@ -341,10 +345,10 @@
     for food poisoning, as well as being used as a model organism for bacteria
     in general; \emph{Pseudomonas aeruginosa} is an opportunistic pathogen, and
     infections involving it can be responsible for a variety of life-threatening
-    conditions, including pneumonia and a variety of septic conditions [CITE THIS];
+    conditions, including pneumonia and a variety of septic conditions \cite{pseudomonas};
     \emph{Staphylococcus aureus}, another opportunistic pathogen, is responsible
     for a variety of skin and respiratory conditions which can be life-threatening
-    [CITE THIS].
+    \cite{staph}.
 
     In short, all three are medically-significant pathogens.
 
@@ -352,10 +356,12 @@
     bacterial species is not of any especial relevance. However, an examination of 
     its entries in the database reveals a possible reason why - nearly every virus
     attributed to it in the database is listed as being a phage of Mycobacteria in
-    general [CITE]. The Mycobacterium clade includes numerous species of pathogenic
-    bacteria, including those responsible for tuberculosis and leprosy [CITE]. As 
+    general. Futher, outside research reveals it was the first species of
+    Mycobacteria for which a phage was discovered \cite{first_myco}.
+    The Mycobacterium clade includes numerous species of pathogenic
+    bacteria, including those responsible for tuberculosis and leprosy \cite{myco}. As 
     phage therapy has been a major focus in research for treatments for these
-    diseases in recent years [CITE], it therefore becomes clear that
+    diseases in recent years \cite{myco_phage}, it therefore becomes clear that
     \emph{Mycolicibacterium smegmatis}'s predominance in the database is a result
     of its use as a model organism for Mycobacterium phage research.
 
@@ -397,7 +403,7 @@
     collection of these genomes must, at the very least, be taken with a grain of
     salt.
 
-    \subsection{Differences between plants and animals}
+    \subsection{Differences between plant and animal viruses in the database}
 
     Perhaps more interesting than the confirmation of the initial hypothesis,
     however, is that the \emph{degree} to which viral genome sequencing is slanted in
@@ -436,6 +442,68 @@
     crop viruses, and that of livestock viruses, would be necessary to make
     a definitive conclusion, and I was unable to find any such data for use
     in this research.
+
+    \section{Acknowledgements}
+
+    I thank Dr. Claus Wilke for supervising this project.
+
+    \begin{thebibliography}{}
+
+        \bibitem{pseudomonas}
+        “\emph{Pseudomonas aeruginosa} in Healthcare Settings” cdc.gov, Centers for Disease Control and Prevention, 2 Apr. 2013.
+        
+        \bibitem{staph}
+        “\emph{Staphylococcus aureus} in Healthcare Settings" cdc.gov, Centers for Disease Control and Prevention, 17 Jan. 2011.
+
+        \bibitem{myco}
+        “Mycobacterial Infections" MedlinePlus, U.S. National Library of Medicine, 7 Feb. 2019.
+
+        \bibitem{first_myco}
+        Gardner, Grace M., and Russell S. Weiser. “A Bacteriophage for Mycobacterium Smegmatis.” Proceedings of the Society for Experimental Biology and Medicine, vol. 66, no. 1, Oct. 1947, pp. 205–206, doi:10.3181/00379727-66-16037.
+        
+        \bibitem{myco_phage}
+        Hatfull, Graham F. “Mycobacteriophages.” Microbiology spectrum vol. 6,5 (2018): 10.1128/microbiolspec.GPP3-0026-2018. doi:10.1128/microbiolspec.GPP3-0026-2018
+
+    \end{thebibliography}
+
+    \appendix
+
+    \section{Project Code Repository}
+    https://github.com/sable-cat/anthropocentric-sequencing
+
+    \pagebreak
+
+    \section{Reflection}
+
+    Before starting this project, I'd already used the NCBI databases extensively
+    in a number of my classes, so I didn't learn that much about them, ultimately.
+    I did learn about the existence of the Virus-Host Database, and how to use it,
+    however - as should be clear from the rest of my project, it proved immensely
+    useful. I was thinking I'd have to manually curate host connections for a
+    selection of viruses in the database, and that database saved me from that.
+
+    I had to learn to use Matplotlib to generate figures/plots. Previously, I'd
+    used a library in R to generate figures, but I made the decision to do all
+    the code for this project in python, and thus was forced to teach myself
+    Matplotlib. I do prefer it to any other such library I've used in the past -
+    it's not exactly easy to use, but it provides a whole lot of control (just
+    look at the little numbers I added to the bar graphs showing the exact
+    size of each bar).
+
+    This was also my first time doing statistical research and analysis without
+    significant direction by a professor, as in my classwork. This is not to say
+    Dr. Wilke contributed little to the project - that's certainly not the case -
+    but that in class projects I had been given rather tight directions as to what
+    the project should be about, how the final paper should look, etcetera, and
+    this was the first time I was, essentially, free of that. It required far more
+    creativity, and there were a number of times something didn't work out how I
+    expected and I was rather lost on what, exactly, to do. At the same time, there
+    were a number times where I was pleasantly surprised by a very interesting
+    result (I was particularly elated when I first noticed the clear discrepancy
+    between plant and animal viruses that the discussion spends so long elaborating
+    on).
+
+
 
 
 \end{document}
