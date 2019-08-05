@@ -149,7 +149,7 @@ class MyVHDB:
     def __str__(self):
         return self.virus_host_dict.__str__()
 
-
+# An entry in the new database format
 class MyVHDBEntry:
     def __init__(self, virus, hosts):
         self.virus = virus
@@ -187,8 +187,3 @@ def getSpeciesNamesFromNameRecord(name):
     return species_names
         
         
-        
-    
-if __name__ == '__main__':
-    print("Hi!")
-    print(getSpeciesNamesFromNameRecord("GenusA speciesA x GenusB speciesB"))
