@@ -96,8 +96,8 @@
     The NCBI viral genomes database does not provide information on the hosts
     of the viruses it contains records on. Thankfully, the Virus-Host Database provides
     linkages between the various NCBI databases' (including the Viral Genomes
-    database) records for viruses and the records for their hosts. Therefore,
-    this project uses data from the Viral-Host Database instead of the NCBI viral
+    database) records for viruses and for their hosts. Therefore,
+    this project uses data from the Virus-Host Database instead of the NCBI viral
     genomes database directly.
 
     The Virus-Host Database in its entirety - 14,042 unique records - is utilized in
@@ -105,14 +105,14 @@
 
     This presents a difficulty, however - the Virus-Host Database's records are
     formatted as a relationship between a single virus and a single piece of
-    literature that shows at least one host for that virus, with the hosts shown
-    in that literature linked by the record, rather than as a relationship between a
+    literature that shows at least one host for that virus, with the record listing
+    the hosts shown by that literature, rather than as a relationship between a
     virus and its hosts.
 
     As such, the database was reformatted to a custom format, each entry providing
     a one-to-many relationship between a virus and its hosts.
 
-    All data processing was performed via python script. Figures presented in the
+    All data processing was performed via python script. Figures presented in this
     paper were generated using Matplotlib. A link to the github repository for this
     project is included in the appendix of this paper.
 
@@ -147,7 +147,7 @@
     hosts in a given clade, as shown in Figure \ref{infects_clades_figure}.
     The numbers there are roughly proportional to those in Figure
     \ref{host_clades_figure}, save that plants seem to make up a somewhat
-    proportionately smaller portion of the data. It also shows that viruses
+    smaller proportion of the data. It also shows that viruses
     which are capable of infecting species belonging to more than one distinct
     kingdom are extremely rare in the data set; thus, we can effectively ignore
     this overlap.
@@ -177,8 +177,8 @@
 
     As shown in Figure \ref{unique_species_figure}, there are just under 3
     times as many unique species of virus as of host. This means we can expect,
-    for each host species in the database, multiple species of virus that infect
-    it.
+    for each host species in the database, there will be multiple species of virus
+    that infect it.
 
     This is not entirely the case, however. An examination of the distribution of
     the data, shown in Figure \ref{viruses_per_host_figure}, shows an enormous skew
@@ -197,7 +197,7 @@
 
     Notably, a version of this graph using log scales for both axes - as shown in
     Figure \ref{log_viruses_per_host_figure} - shows a nearly straight line,
-    indicating a simple exponential distribution is at play here.
+    indicating a simple power law distribution is at play here.
 
     \begin{figure}[H]
         \begin{center}
@@ -233,7 +233,7 @@
     species (both plants and animals) and an assortment of common bacteria.
 
     Unsurprisingly, the host species with by far the largest number of
-    sequenced viruses - 1,309 distinct species - is \emph{Homo sapiens}, As
+    sequenced viruses - 1,309 distinct species - is \emph{Homo sapiens}, as
     shown by Table \ref{most_common_hosts_table}. However, the next most
     common hosts are rather surprising: two strains of 
     \emph{Mycolicibacterium smegmatis} - MC2 115 and one left unlabeled - with a
@@ -252,7 +252,7 @@
 
     As shown in Figure \ref{host_species_domestic_wild_figure}, a quite small
     number of the plant and animal species appearing in the database are
-    domesticated, vs. those that are wild. This is to be expected, as,
+    domesticated, versus those that are wild. This is to be expected, as,
     ultimately, domesticated species make up a tiny portion of the species
     on Earth. These numbers, however, actually represent a much larger
     proprotion of the database than we would see if every animal on Earth
@@ -281,7 +281,7 @@
     and wild host species in the database. We can confirm this with a chi-squared
     test, setting up our categories as in Table \ref{domestic_wild_chi_test}, and
     with the null hypothesis "Whether or not a species is domesticated is independent
-    of how many viruses that infect are sequenced."
+    of how many viruses that infect it are sequenced."
 
     \begin{table}[H]
         \begin{center}
@@ -299,7 +299,7 @@
 
     The test on this data gives us $\chi^2 = 1192.4394$, and therefore $p < 0.01$,
     rejecting the null hypothesis and showing our determination that these proportions
-    don't match up is correct.
+    do not match up is correct.
 
     It is also apparent that the number of viruses in each category is differently
     proportioned between plants and animals - with animals a proportionately
@@ -336,11 +336,11 @@
     Table \ref{most_common_hosts_table}, the results vis-à-vis eukaryotic species
     appearing in the table seem consistent with the overall results - humans are
     the most common host species, with the others being domesticated plants
-    (tomatos) or domesticated animals (cattle, pigs, house mice). The bacterial
-    species appearing in the table seem to be less intuitive, however.
+    (tomatos) or domesticated animals (cattle, pigs, house mice). However,
+    The bacterial species appearing in the table seem to be less intuitive.
 
     The reason for the predominance of \emph{Escheria coli}, \emph{Pseudomonas
-    aeruginosa}, and \emph{Staphylococcus aureus}, however, seems clear with
+    aeruginosa}, and \emph{Staphylococcus aureus} seems clear with
     a bit of further investigation: \emph{Escheria coli} is commonly responsible
     for food poisoning, as well as being used as a model organism for bacteria
     in general; \emph{Pseudomonas aeruginosa} is an opportunistic pathogen, and
@@ -353,7 +353,7 @@
     In short, all three are medically-significant pathogens.
 
     The predominance of \emph{Mycolicibacterium smegmatis} is more curious, as the
-    bacterial species is not of any especial relevance. However, an examination of 
+    bacterial species is not of any especial relevance to medicine. However, an examination of 
     its entries in the database reveals a possible reason why - nearly every virus
     attributed to it in the database is listed as being a phage of Mycobacteria in
     general. Futher, outside research reveals it was the first species of
@@ -373,15 +373,15 @@
     line with the contention that research into viral genomics is biased in an
     anthropocentric direction.
 
-    The usage of the use of model organisms such as \emph{M. smegmatis} in phage
+    The usage of model organisms such as \emph{M. smegmatis} in phage
     research, however, presents a complication - it would require extensive manual
     curation to determine exactly which non-pathogenic bacteria in the database
-    are serving as models for pathogenic species, versus which are being researched
+    are serving as models for pathogenic species, versus those which are being researched
     on their own merits. Such a determination would need to be made to perform any
     sort of detailed statistical analysis on this phenomenon.
 
     This places a deeper analysis of such outside the scope of this investigation,
-    thus, is the reason why the rest of the results did not attempt to investigate
+    thus, the rest of the results did not attempt to investigate
     this further, and why the remainder of this discussion will focus solely on
     plants and animals.
 
@@ -393,7 +393,7 @@
     humans than it does for wild ones. It is extremely unlikely that this could
     be explained by domesticated species simply having more viruses than wild
     ones - even if we assumed they did, the discrepancy couldn't possibly be
-    large enough to account for that we observe in the database. This suggests
+    large enough to account for that which we observe in the database. This suggests
     the confirmation of the existence of a significant anthropocentric bias
     in the database, as was initially hypothesized.
 
@@ -435,7 +435,7 @@
     disease is more relevant to the cultivation of crops than to raising
     domesticated animals. Livestock populations are typically relatively
     isolated from each other, with the stock belonging to a particular
-    farmstead rarely interacting with that of others. By comparison, crop fields
+    farmstead rarely interacting with that of others. By contrast, crop fields
     are often grown side by side, with the crops on the edge of one being in
     constant proximity to those in a neighbor's. This is little more than
     speculation, however - proper quantitative data on the economic impacts of
@@ -455,12 +455,12 @@
         \bibitem{staph}
         “\emph{Staphylococcus aureus} in Healthcare Settings" cdc.gov, Centers for Disease Control and Prevention, 17 Jan. 2011.
 
-        \bibitem{myco}
-        “Mycobacterial Infections" MedlinePlus, U.S. National Library of Medicine, 7 Feb. 2019.
-
         \bibitem{first_myco}
         Gardner, Grace M., and Russell S. Weiser. “A Bacteriophage for Mycobacterium Smegmatis.” Proceedings of the Society for Experimental Biology and Medicine, vol. 66, no. 1, Oct. 1947, pp. 205–206, doi:10.3181/00379727-66-16037.
         
+        \bibitem{myco}
+        “Mycobacterial Infections" MedlinePlus, U.S. National Library of Medicine, 7 Feb. 2019.
+
         \bibitem{myco_phage}
         Hatfull, Graham F. “Mycobacteriophages.” Microbiology spectrum vol. 6,5 (2018): 10.1128/microbiolspec.GPP3-0026-2018. doi:10.1128/microbiolspec.GPP3-0026-2018
 
